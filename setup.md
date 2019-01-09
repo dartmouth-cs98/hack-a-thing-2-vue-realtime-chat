@@ -1,0 +1,3 @@
+- create admin account
+- enable cors
+- change `couch_http_auth:timeout` to 604800
