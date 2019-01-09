@@ -27,3 +27,6 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Tut-O'real
+- https://github.com/pouchdb-community/pouchdb-authentication/tree/master/docs
