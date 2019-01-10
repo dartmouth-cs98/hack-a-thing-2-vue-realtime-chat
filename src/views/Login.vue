@@ -59,8 +59,8 @@ export default {
           window.localStorage.getItem("username"),
           window.localStorage.getItem("fp")
         )
-        window.localStorage.setItem("signedIn", true)
-        this.$router.push("/")
+        window.localStorage.setItem("loggedIn", true)
+        this.$router.push("/topics/all")
       } catch (err) {
         if (err.name == "forbidden") {
           // wrong password. TODO: what do?
