@@ -12,7 +12,9 @@
     "fingerprintjs2": "^2.0.6",
     "pouchdb": "^7.0.0",
     "pouchdb-authentication": "^1.1.3",
+    "pouchdb-find": "^7.0.0",
     "vue": "^2.5.21",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
