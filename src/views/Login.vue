@@ -61,7 +61,6 @@ export default {
         )
         window.localStorage.setItem("loggedIn", true)
 
-        db.sync()
         this.$router.push("/topics/general")
       } catch (err) {
         if (err.name == "forbidden") {

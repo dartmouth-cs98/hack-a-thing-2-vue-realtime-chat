@@ -52,9 +52,11 @@ export default {
 
       this.busy = false
     },
-    async onSubmit() {
+    async onSubmit(e) {
+      e.preventDefault()
       const now = new Date() + ""
 
+      // TODO: figure out why the fuck PouchDB won't replicate to CouchDB!!
       await db.local.post({
         user: this.user,
         topic: this.topic,
