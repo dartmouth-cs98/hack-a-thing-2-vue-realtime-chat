@@ -11,6 +11,7 @@
 
 <script>
 import fp from "fingerprintjs2"
+import db from "../assets/db"
 
 export default {
   data: () => ({
@@ -18,7 +19,7 @@ export default {
     username: ""
   }),
   mounted() {
-    if (!this.postfix)
+    if (!window.localStorage.getItem("postfix"))
       setTimeout(() => {
         fp.get(components => {
           const seed = fp.x64hash128(
@@ -26,16 +27,45 @@ export default {
             31
           )
           const postfix = `#${parseInt(seed, 16) % 10000}`
+
           window.localStorage.setItem("fp", seed)
-          window.localStorage.setItem("postfix", postfix)
-          this.postfix = postfix
+          window.localStorage.setItem("postfix", (this.postfix = postfix))
         })
       }, 50)
   },
   methods: {
-    onSubmit(e) {
+    // current login behaviour is to simply sign up with user's given username.
+    // TODO: check if a username already exists in browser
+    async onSubmit(e) {
       e.preventDefault()
-      this.username + this.postfix
+
+      // check if user already exists in the server
+      try {
+        window.localStorage.setItem("username", this.username + this.postfix)
+        await db.remote.signUp(
+          window.localStorage.getItem("username"),
+          window.localStorage.getItem("fp")
+        )
+      } catch (err) {
+        if (err.name != "conflict") {
+          alert(err.message)
+          return
+        }
+      }
+
+      // login
+      try {
+        await db.remote.logIn(
+          window.localStorage.getItem("username"),
+          window.localStorage.getItem("fp")
+        )
+        window.localStorage.setItem("signedIn", true)
+        this.$router.push("/")
+      } catch (err) {
+        if (err.name == "forbidden") {
+          // wrong password. TODO: what do?
+        }
+      }
     }
   }
 }

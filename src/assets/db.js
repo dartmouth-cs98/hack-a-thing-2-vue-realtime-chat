@@ -1,5 +1,8 @@
-const PouchDB = require("pouchdb")
-PouchDB.plugin(require("pouchdb-authentication"))
+import PouchDB from "pouchdb"
+import PouchAuth from "pouchdb-authentication"
+PouchDB.plugin(PouchAuth)
 
-exports.remote = new PouchDB(process.env.COUCHDB_URI, { skip_setup: true })
-exports.local = new PouchDB("chat")
+export default {
+  remote: new PouchDB(process.env.VUE_APP_COUCHDB_URI, { skip_setup: true }),
+  local: new PouchDB("chat")
+}
