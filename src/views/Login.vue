@@ -11,7 +11,7 @@
 
 <script>
 import fp from "fingerprintjs2"
-import db from "../assets/db"
+import db from "@/assets/db"
 
 export default {
   data: () => ({
@@ -60,7 +60,9 @@ export default {
           window.localStorage.getItem("fp")
         )
         window.localStorage.setItem("loggedIn", true)
-        this.$router.push("/topics/all")
+
+        db.sync()
+        this.$router.push("/topics/general")
       } catch (err) {
         if (err.name == "forbidden") {
           // wrong password. TODO: what do?

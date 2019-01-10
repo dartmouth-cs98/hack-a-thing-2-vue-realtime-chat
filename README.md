@@ -34,6 +34,8 @@ So, in the end, I spent *wayyyyyyy* too much time (20+ hours between all the cod
 
 Takeaways? Stick with what I know and do best - building "traditional" webapps, unless there's a specific, dire *need* to change otherwise. Use technologies where they fit - for instance, device fingerprinting really fit my needs that were previously unmet by any tools in my toolbox, while CouchDB... or really any noSQL "databases" for that matter, really only serve very *small, specific* niches and even then for the most part, what I know - relational databases - will serve me best. Also, libraries, community support, & documentation matter. They matter *so much*! They are probably even more important than the quality of the actual product itself, so do extensive research before I jump in (I got lucky with PHP & node/express)!
 
+And, most importantly, don't take a bite TOO big - or you'll choke on it like I did.
+
 ## Authors
 - Project manager: Sungil Ahn
 - Lead programmer: Sungil Ahn

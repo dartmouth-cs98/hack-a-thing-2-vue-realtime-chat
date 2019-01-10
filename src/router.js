@@ -11,13 +11,15 @@ export default new Router({
   routes: [
     {
       path: "/",
-      meta: {
-        requiresAuth: true
-      }
+      redirect: "/topics/general"
     },
     {
       path: "/login",
       component: Login
+    },
+    {
+      path: "/topic",
+      redirect: "/topics/general"
     },
     {
       path: "/topics/:topic",
