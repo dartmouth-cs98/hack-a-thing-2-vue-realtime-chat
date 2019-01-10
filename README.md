@@ -26,6 +26,8 @@ And of course, Bootstrap *always* sucks no matter how many times I use it (it *a
 
 Oh, and what about syncing the actual data between client & server, *and* reflecting those changes in the UI? And working with PouchDB, with authentication, with a hosted instance of CouchDB (which never worked after hours of debugging so I dropped it)? These issues alone demand at least 10 paragraphs of complaints, but I'm running out of steam as I write this.
 
+But seriously, PouchDB is the buggiest piece of shit to have EVER existed, and that's probably the number 1 reason why this project doesn't seem like that much code (even though I spent WAY TOO MUCH time on it, haven't had a shower since Monday)!
+
 So, in the end, I spent *wayyyyyyy* too much time (20+ hours between all the coding, erasing, restarting project, debugging, reading documentation, *finding* documentation and tutorials and existing setups, and if all failed, reading the goddamn source codes) on something that's really supposed to be simple, and yet I haven't even managed to complete the MVP (please have mercy on me). So what did I learn?
 - how to build a frontend SPA (decoupled from the backend) and handle Vue framework setup + transpiling, wiring Vue components, actual 2-way data binding and auto-updating UI (which I ended up having to write on my own anyway), routing, bootstrap integration, and using infinite scrolls
 - data modeling with CouchDB; specifically, the use of what is essentially a key-value store to manage documents, admin & user management, working with indices, synchronizing between different instances (one on the client, one on the server), reflecting changes into the UI framework, the godawful and archaic authentication, etc.
