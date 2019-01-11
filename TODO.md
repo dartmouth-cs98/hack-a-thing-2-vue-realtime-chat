@@ -1,0 +1,1 @@
+- [ ] Make infinite scroll work *backwards* (i.e. `loadMore()` is triggered when the `div` reached the top, not the bottom), or change product to a social network rather than a chat app (figure out what the hell this product is about)

@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center justify-content-center h-100">
     <b-form @submit="onSubmit" class="w-25">
       <b-input-group size="lg" :append="postfix">
-        <b-form-input placeholder="Enter your username" v-model="username">
+        <b-form-input placeholder="What's your name?" v-model="username">
         </b-form-input>
       </b-input-group>
     </b-form>

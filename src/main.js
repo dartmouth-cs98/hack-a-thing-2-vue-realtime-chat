@@ -5,6 +5,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css"
 import infiniteScroll from "vue-infinite-scroll"
 import App from "./App.vue"
 import router from "./router"
+import store from './store'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
@@ -24,5 +25,6 @@ router.beforeEach((to, from, next) => {
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount("#app")
