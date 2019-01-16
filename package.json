@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "start": "node app.js",
-    "watch": "nodemon app.js"
+    "watch": "nodemon app.js",
+    "test": "mocha --bail --exit --recursive"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -22,11 +23,10 @@
     "http-errors": "^1.7.1",
     "ioredis": "^4.3.0",
     "jsonwebtoken": "^8.4.0",
-    "knex": "^0.16.3",
-    "objection": "^1.4.0",
-    "pg": "^7.8.0",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.4.3",
     "recaptcha3": "^0.3.0",
-    "vue": "^2.5.21",
+    "vue": "^2.5.22",
     "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
@@ -38,16 +38,19 @@
     "@vue/cli-service": "^3.3.0",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.22"
   },
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "mocha": true
     },
     "extends": [
       "plugin:vue/essential",

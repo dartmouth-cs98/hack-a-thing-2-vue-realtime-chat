@@ -10,24 +10,25 @@
 
 <script>
 import fp from "fingerprintjs2"
-import db from "@/assets/db"
+import db from "../assets/db"
 
 export default {
   data: () => ({
     postfix: window.localStorage.getItem("postfix"),
-    username: ""
+    username: "",
+    password: ""
   }),
   mounted() {
     if (!window.localStorage.getItem("postfix"))
       setTimeout(() => {
         fp.get(components => {
-          const seed = fp.x64hash128(
+          // TODO: just send the raw username string
+          this.password = fp.x64hash128(
             components.map(pair => pair.value).join(),
             31
           )
           const postfix = `#${parseInt(seed, 16) % 10000}`
 
-          window.localStorage.setItem("fp", seed)
           window.localStorage.setItem("postfix", (this.postfix = postfix))
         })
       }, 50)

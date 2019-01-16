@@ -1,1 +1,6 @@
-- [ ] Make infinite scroll work *backwards* (i.e. `loadMore()` is triggered when the `div` reached the top, not the bottom), or change product to a social network rather than a chat app (figure out what the hell this product is about)
+- [ ] Extract out all hardcoded values into environment variables
+- [ ] Allow users to favourite/follow certain topics, and show them up top
+- [ ] Add notifications
+- [ ] Add private messaging
+- [ ] Add user role management (admin/mod/user, banning & what happens to their content, etc.)
+- [ ] Add metadata to topics (e.g. nsfw?)
