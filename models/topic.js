@@ -37,7 +37,7 @@ class Topic extends Model {
   }
 
   $afterGet() {
-    this.name = this.name.split("/")
+    this.name = this.name.split("/") || []
   }
 
   static get relationshipMapping() {

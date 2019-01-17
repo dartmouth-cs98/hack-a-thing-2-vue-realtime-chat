@@ -10,7 +10,8 @@
     "migrate": "DEBUG=knex knex migrate:latest",
     "rollback": "DEBUG=knex knex migrate:rollback",
     "start": "node app.js",
-    "watch": "nodemon app.js"
+    "watch": "nodemon app.js",
+    "gensecret": "node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\""
   },
   "dependencies": {
     "apollo-server-koa": "^2.3.1",
@@ -21,6 +22,7 @@
     "knex": "^0.16.3",
     "koa": "^2.6.2",
     "koa-helmet": "^4.0.0",
+    "koa-jwt": "^3.5.1",
     "lodash": "^4.17.11",
     "objection": "^1.4.0",
     "pg": "^7.8.0",
