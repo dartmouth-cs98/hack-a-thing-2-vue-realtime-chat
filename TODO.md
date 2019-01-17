@@ -6,3 +6,4 @@
 - [ ] Add user role management (admin/mod/user, banning & what happens to their content, etc.)
 - [ ] Add metadata to topics (e.g. nsfw?)
 - [ ] Sort topics by popular
+- [ ] Local & production settings
