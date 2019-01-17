@@ -16,9 +16,12 @@ module.exports = {
   },
   Mutation: {
     post: async (_, { topic, type, body }, { user }) => {
-      return await Post.query()
-        .insert({ topic, type, body, creator: user.name })
-        .returning("*")
+      return await Post.query().insert({
+        topic,
+        type,
+        body,
+        creator: user.name
+      })
     }
   }
 }

@@ -11,3 +11,4 @@
 users)
 - [x] Add score to user
 - [ ] Global variable types? (e.g. `PAGE_LIMIT` is 25 the number *not* a string)
+- [ ] Add update/delete features

@@ -8,9 +8,7 @@ module.exports = {
   },
   Mutation: {
     createTopic: async (_, { name, parent }) => {
-      return await Topic.query()
-        .insert({ name, parent })
-        .returning("*")
+      return await Topic.query().insert({ name, parent })
     }
   }
 }

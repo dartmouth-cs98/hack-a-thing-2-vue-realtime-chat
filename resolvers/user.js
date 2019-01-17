@@ -15,18 +15,21 @@ module.exports = {
   },
   Mutation: {
     signIn: async (_, { name, password }) => {
+      /**
+       * TODO:
+       *  shit that fails original model validation returns with internal server error,
+       *  but my custom validation is just eaten
+       */
       let user
 
       // first, see if user already exists
-      if (await User.query().where({ name })) {
+      if ((await User.query().where({ name }))[0]) {
         // login
         // TODO: does graphql filter unlisted properties?
-        user = await User.query().where({ name, password })
+        user = (await User.query().where({ name, password }))[0]
       } else {
         // sign up
-        user = await User.query()
-          .insert({ name, password })
-          .returning("*")
+        user = (await User.query().insert({ name, password }))[0]
       }
 
       if (!user) throw new AuthenticationError("Incorrect password")

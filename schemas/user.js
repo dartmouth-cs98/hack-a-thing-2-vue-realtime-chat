@@ -19,7 +19,7 @@ module.exports = gql`
   }
 
   extend type Query {
-    history(after: ID): [Posts!]!
+    history(after: ID): [Post!]!
   }
 
   extend type Mutation {

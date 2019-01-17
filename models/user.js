@@ -20,7 +20,7 @@ class User extends Model {
           type: "string",
           minLength: 1,
           maxLength: process.env.VUE_APP_MAX_USERNAME_LENGTH,
-          pattern: "^[a-zA-Z ]$"
+          pattern: "^[a-zA-Z ]+$"
         },
         password: {
           type: "string",
@@ -30,13 +30,13 @@ class User extends Model {
     }
   }
 
-  async $afterValidate() {
-    this.name = `${startCase(this.name.toLowerCase())}#${(
+  async $afterValidate(obj) {
+    obj.name = `${startCase(obj.name.toLowerCase())}#${(
       "0000" +
-      (parseInt(this.password, 16) % 10000)
+      (parseInt(obj.password, 16) % 10000)
     ).slice(-4)}`
 
-    await recaptcha.score(this)
+    return recaptcha.score(obj)
   }
 
   static get relationshipMapping() {
