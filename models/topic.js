@@ -12,7 +12,7 @@ class Topic extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["name", "parent"],
+      required: ["name"],
       properties: {
         name: {
           type: "string",
@@ -20,24 +20,16 @@ class Topic extends Model {
           maxLength: process.env.VUE_APP_MAX_TOPIC_LENGTH,
           pattern: "^\\w+$"
         },
-        parent: [
-          {
-            type: "string",
-            minLength: 1
-          }
-        ]
+        parent: {
+          type: "string"
+        }
       },
       additionalProperties: false
     }
   }
 
   $afterValidate() {
-    this.parent = this.parent.join("/")
     this.name = `${this.parent}/${this.name}`
-  }
-
-  $afterGet() {
-    this.name = this.name.split("/") || []
   }
 
   static get relationshipMapping() {

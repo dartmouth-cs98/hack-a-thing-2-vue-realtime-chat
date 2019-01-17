@@ -1,5 +1,6 @@
 const { Model } = require("objection")
 const startCase = require("lodash/startCase")
+const recaptcha = require("../lib/recaptcha")
 
 class User extends Model {
   static get tableName() {
@@ -25,16 +26,17 @@ class User extends Model {
           type: "string",
           minLength: 1
         }
-      },
-      additionalProperties: false
+      }
     }
   }
 
-  $afterValidate() {
+  async $afterValidate() {
     this.name = `${startCase(this.name.toLowerCase())}#${(
       "0000" +
       (parseInt(this.password, 16) % 10000)
     ).slice(-4)}`
+
+    await recaptcha.score(this)
   }
 
   static get relationshipMapping() {

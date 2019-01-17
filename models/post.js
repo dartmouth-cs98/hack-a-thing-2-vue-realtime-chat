@@ -1,5 +1,5 @@
 const { Model } = require("objection")
-const { post } = require("axios")
+const recaptcha = require("../lib/recaptcha")
 
 class Post extends Model {
   static get tableName() {
@@ -38,16 +38,7 @@ class Post extends Model {
 
   // fetch reCAPTCHA v3 score from Google
   async $afterValidate() {
-    const resp = await post(process.env.RECAPTCHA_ENDPOINT, {
-      secret: process.env.RECAPTCHA_V3_PRIVATE,
-      response: this.token,
-      remoteip: this.ip
-    })
-
-    if (!resp.data.success) throw new Error("Invalid recaptcha token")
-    this.token_score = resp.data.score
-    delete this.token
-    delete this.ip
+    await recaptcha.score(this)
   }
 }
 
