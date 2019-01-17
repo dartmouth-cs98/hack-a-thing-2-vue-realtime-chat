@@ -14,7 +14,7 @@ For user identity, it takes your username (say, `Greg`) and appends some hash to
  add spam filtering via ReCAPTCHA v3, which can score individuals from 0 to 1 on how likely they are to be 
  spammers/bots. Then, I could filter out posts & comments of people who have very low scores when a "normal" user 
  views a topic/post, so that they wouldn't be exposed to the flaming trashcan that is 4chan.
-
+ 
 So far I've implemented some frontend skeleton to allow auto-updating, ordering, refreshing, etc., the logic in the 
 backend (database logic/models/controllers/server config), except (at the time of writing this) I'm still stuck 
 trying to get server-side GraphQL schemas/resolvers/subscriptions work. Speaking of which...
@@ -57,7 +57,13 @@ this...
 Also, Vue takes a lot of time to learn. So does GraphQL. But the ecosystem around it? So, so much worse (in terms of 
 time taken to learn), so really set aside time for those the next time.
 
+## Tut-O'real
+I didn't follow any tutorials, and built everything from scratch according to my ideas & docs. Looking at what 
+literally everyone else has done, I should've just stuck with a tutorial... I wasted so much time learning & building
+ everything from scratch, not to mention I have no tangible demo to show for it other than "here look at what I've 
+ written so far"...
+
 ## Credits
-The good parts: Sungil Ahn
-The bad parts: Sungil Ahn
-The ugly parts: Sungil Ahn
+- The good parts: Sungil Ahn
+- The bad parts: Sungil Ahn
+- The ugly parts: Sungil Ahn

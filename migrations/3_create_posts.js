@@ -15,7 +15,7 @@ exports.up = async knex => {
 
     table.timestamps(true, true)
 
-    table.index(["topic", "type", "created_at", "token_score", "creator"])
+    table.index(["topic", "type", "id", "token_score", "creator"])
   })
 
   await knex.raw(`

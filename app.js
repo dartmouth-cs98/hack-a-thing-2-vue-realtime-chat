@@ -8,6 +8,11 @@ const resolvers = require("./resolvers")
 const app = new Koa()
   .use(helmet())
   .use(jwt({ secret: process.env.JWT_SECRET, passthrough: true }))
-new ApolloServer({ typeDefs, resolvers }).applyMiddleware(app)
+
+new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: ({ ctx }) => ({ user: ctx.state.user || {} })
+}).applyMiddleware(app)
 
 app.listen(process.env.PORT)

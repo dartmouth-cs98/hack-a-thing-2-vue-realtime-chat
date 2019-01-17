@@ -8,11 +8,11 @@ module.exports = gql`
 
   extend type Query {
     post(id: ID!): Post! # fetch a *post* by id
-    posts(topic: [String]!, type: String!, after: ID): [Post!]! # fetch either posts or topics
+    posts(topic: String!, type: PostType!, after: ID): [Post!]! # fetch either posts or topics
   }
 
   extend type Mutation {
-    post(topic: [String]!, type: String!, body: String!): Post!
+    post(topic: String!, type: PostType!, body: String!): Post!
   }
 
   extend type Subscription {

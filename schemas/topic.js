@@ -6,7 +6,7 @@ module.exports = gql`
   }
 
   extend type Query {
-    topics(parent: String, after: String): [Topic!]!
+    topics(parent: String!): [Topic!]!
   }
 
   extend type Mutation {

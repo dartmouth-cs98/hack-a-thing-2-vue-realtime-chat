@@ -1,9 +1,14 @@
 const { gql } = require("apollo-server-koa")
 
 module.exports = gql`
+  enum PostType {
+    post
+    comment
+  }
+
   type Post {
     id: ID!
-    type: String!
+    type: PostType!
     topic: String!
     creator: String!
     body: String!

@@ -5,5 +5,9 @@
 - [ ] Add private messaging
 - [ ] Add user role management (admin/mod/user, banning & what happens to their content, etc.)
 - [ ] Add metadata to topics (e.g. nsfw?)
-- [ ] Sort topics by popular
+- [ ] Sort & paginate topics by popular
 - [ ] Local & production settings
+- [ ] ENSURE the presence of ctx.state.user/authorized state for EVERYTHING other than `signIn()`!!! (or allow guest 
+users)
+- [x] Add score to user
+- [ ] Global variable types? (e.g. `PAGE_LIMIT` is 25 the number *not* a string)
