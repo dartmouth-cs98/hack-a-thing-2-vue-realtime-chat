@@ -2,7 +2,10 @@ exports.up = async knex => {
   await knex.schema.createTable("posts", table => {
     table.increments()
 
-    table.enu("type", ["post", "comment"], { useNative: true })
+    table.enu("type", ["post", "comment"], {
+      useNative: true,
+      enumName: "post_type"
+    })
     table.text("topic").references("topics.name")
     table.float("token_score")
     table.text("creator").references("users.name")
@@ -12,7 +15,7 @@ exports.up = async knex => {
 
     table.timestamps(true, true)
 
-    table.index(["type", "topic", "created_at", "token_score", "creator"])
+    table.index(["topic", "type", "created_at", "token_score", "creator"])
   })
 
   await knex.raw(`
@@ -32,6 +35,7 @@ exports.down = async knex => {
   await knex.raw(`
     DROP TRIGGER posts_trigger ON topics;
     DROP FUNCTION posts_prehook();
+    DROP TYPE post_type CASCADE;
   `)
 
   await knex.schema.dropTable("posts")
