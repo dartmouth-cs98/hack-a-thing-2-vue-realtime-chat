@@ -27,7 +27,7 @@
     "lodash": "^4.17.11",
     "objection": "^1.4.0",
     "pg": "^7.8.0",
-    "ws": "^6.1.2"
+    "ws": "^7.4.6"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.1",
